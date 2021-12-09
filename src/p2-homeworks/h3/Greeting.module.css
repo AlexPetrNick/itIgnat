@@ -1,0 +1,53 @@
+.someClass {
+
+}
+
+.error {
+    border: 1px solid red;
+    width: 200px;
+}
+
+.not_error {
+    border: 1px solid green;
+    width: 200px;
+}
+
+.fields__input {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.wrapper {
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    border: 2px solid black;
+    align-items: center;
+}
+
+.message__error {
+    font-size: 10px;
+    align-self: flex-start;
+}
+
+.total__user {
+    font-size: 13px;
+}
+
+.error_log {
+    color: red;
+    font-size: 12px;
+}
+
+.success_log {
+    color: green;
+    font-size: 12px;
+}
+
+.wrapper__log {
+    background-color: black;
+    width: 400px;
+    max-height: 300px;
+    overflow-y: scroll;
+}
