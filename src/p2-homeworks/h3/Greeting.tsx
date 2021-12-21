@@ -25,7 +25,7 @@ const Greeting: React.FC<GreetingPropsType> = (
                 <button onClick={() => addUser(name)}>add</button>
                 <span className={s.total__user}>Total User: {totalUsers}</span>
             </div>
-            {error ? <span className={s.message__error}>Имя должно быть больше 0 символов</span> : null}
+            {error && <span className={s.message__error}>Имя должно быть больше 0 символов</span>}
         </div>
     )
 }

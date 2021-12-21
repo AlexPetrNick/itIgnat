@@ -11,16 +11,11 @@ type GreetingContainerPropsType = {
 const GreetingContainer: FC<GreetingContainerPropsType> = ({users, addUserCallback, setLog}) => {
     const [name, setName] = useState<string>('')
     const [error, setError] = useState<boolean>(false)
-
     const currDate = () => (new Date().toLocaleTimeString())
-
-
     const setNameCallback = (e: React.ChangeEvent<HTMLInputElement>):void => {
         setError(false)
         setName(e.target.value)
     }
-
-
     const addUser = (name:string):void => {
         if (name.length) {
             addUserCallback(name)

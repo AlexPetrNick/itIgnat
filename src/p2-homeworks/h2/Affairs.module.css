@@ -114,3 +114,7 @@
     box-shadow: 0 0 5px 2px green;
     cursor: pointer;
 }
+
+.pressed {
+    background-color: darkgrey;
+}

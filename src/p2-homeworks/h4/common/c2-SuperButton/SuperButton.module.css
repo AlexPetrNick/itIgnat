@@ -1,7 +1,46 @@
 .default {
+    height: 30px;
+    width: 70px;
+    background: radial-gradient(white, white, white, gray);
+    border-radius: 10px;
+    border: 2px solid gray;
+    margin-top: 5px;
+    cursor: pointer;
+}
 
+.default:hover {
+    box-shadow: 0 0 10px gray;
+    background: radial-gradient(white, white, white, white, gray, gray);
+}
+.default:focus {
+    box-shadow: 0 0 10px gray;
+    background: radial-gradient(white, white, white, gray, black);
 }
 
 .red {
+    margin-top: 5px;
+    height: 30px;
+    width: 70px;
     background: red;
+    border-radius: 10px;
+    border: 1px solid brown;
+    cursor: pointer;
+}
+
+.red:hover {
+    background: radial-gradient( red,red, brown );
+    border: 0;
+
+}
+.red:focus {
+    background: radial-gradient( red, brown );
+    border: 3px solid brown;
+
+}
+
+.disabled, .disabled:hover, .disabled:focus {
+    background: gray;
+    border: 0;
+    box-shadow: 0 0 2px gray;
+    cursor: unset;
 }
