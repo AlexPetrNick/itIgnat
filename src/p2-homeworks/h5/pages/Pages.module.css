@@ -104,3 +104,41 @@
     z-index: -10;
     padding-top: 5px;
 }
+
+.wrapper__404 {
+    width: 100%;
+    height: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.content__404 {
+    width: 600px;
+    height: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    margin-top: -100px;
+}
+
+.cross__404 {
+    margin-top: -250px;
+    font-size: 450px;
+    color: red;
+    text-shadow: 0 0 15px black;
+}
+
+.text__404 {
+    justify-content: space-around;
+    height: 100px;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+    color: crimson;
+    text-shadow: 0 0 3px black;
+    font-size: 20px;
+}

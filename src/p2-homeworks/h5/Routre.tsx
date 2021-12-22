@@ -63,7 +63,7 @@ function Routre() {
                 <Route path={PATH.HW14} element={<HW12/>}/>
                 <Route path={PATH.HW15} element={<HW12/>}/>
                 <Route path={PATH.HW16} element={<HW12/>}/>
-                <Route element={<Error404/>}/>
+                <Route path={'*'} element={<Error404/>}/>
             </Routes>
         </div>
     )
