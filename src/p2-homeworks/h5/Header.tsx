@@ -52,13 +52,26 @@ function Header() {
     }
     const addedMenuDraw = (array:Array<addedLinkType>) => {
         return (
-            <div className={s.added__menu}>
-                {array.map((data, i) => <a className={'added__menu__points' + i}>{data.name}</a>)}
+            <div
+                onMouseOut={onMouseOutUnDraw}
+                className={s.added__menu}>
+                {array.map((data, i) => <a
+                    className={'added__menu__points' + i}
+                    href={"#"}
+                >{data.name}</a>)}
             </div>
         )
     }
-    const onMouseOverDraw = (e: MouseEvent<HTMLAnchorElement>) => {
+
+
+    const onMouseOverDraw = (e: MouseEvent<HTMLDivElement>) => {
+        setStateJP(true)
+        console.log('sdf')
+    }
+    const onMouseOutUnDraw = (e: MouseEvent<HTMLDivElement>) => {setStateJP(false)}
+    const onMouseOverDrawLink = (e: MouseEvent<HTMLAnchorElement>) => {
         const typeArray = e.currentTarget.id
+        console.log(typeArray)
         if (typeArray === 'PreJunior') {
             setMenuType(dataAddedLink.preJunior)
         } else if (typeArray === 'Junior') {
@@ -67,9 +80,8 @@ function Header() {
             setMenuType(dataAddedLink.juniorPlus)
         }
         setStateJP(true)
-        console.log(menuType)
     }
-    const onMouseOutUnDraw = (e: MouseEvent<HTMLAnchorElement>) => { setStateJP(false)    }
+    const onMouseOutUnDrawLink = (e: MouseEvent<HTMLAnchorElement|HTMLDivElement>) => { setStateJP(false)    }
 
     return (
         <div className={s.wrapper}>
@@ -77,30 +89,34 @@ function Header() {
                 <div className={s.current__page}>{currentPage}</div>
                 <div className={s.button__rigth}><b>{">"}</b></div>
             </div>
-            <div className={s.wrapper__link}>
-                <NavLink
-                    id={"PreJunior"}
-                    to={PATH.PRE_JUNIOR}
-                    onClick={onClickLink}
-                    onMouseOver={onMouseOverDraw}
-                    onMouseOut={onMouseOutUnDraw}
-                >PreJunior</NavLink>
-                <NavLink
-                    id={"Junior"}
-                    to={PATH.JUNIOR}
-                    onClick={onClickLink}
-                    onMouseOver={onMouseOverDraw}
-                    onMouseOut={onMouseOutUnDraw}
-                >Junior</NavLink>
-                <NavLink
-                    id={"JuniorPlus"}
-                    to={PATH.JUNIOR_PLUS}
-                    onClick={onClickLink}
-                    onMouseOver={onMouseOverDraw}
-                    onMouseOut={onMouseOutUnDraw}
-                >JuniorPlus</NavLink>
+            <div
+                onMouseOver={onMouseOverDraw}
+                className={s.wrapper__link}>
+                <div className={s.links}>
+                    <NavLink
+                        id={"PreJunior"}
+                        to={PATH.PRE_JUNIOR}
+                        onClick={onClickLink}
+                        onMouseOver={onMouseOverDrawLink}
+                        onMouseOut={onMouseOutUnDrawLink}
+                    >PreJunior</NavLink>
+                    <NavLink
+                        id={"Junior"}
+                        to={PATH.JUNIOR}
+                        onClick={onClickLink}
+                        onMouseOver={onMouseOverDrawLink}
+                        onMouseOut={onMouseOutUnDrawLink}
+                    >Junior</NavLink>
+                    <NavLink
+                        id={"JuniorPlus"}
+                        to={PATH.JUNIOR_PLUS}
+                        onClick={onClickLink}
+                        onMouseOver={onMouseOverDrawLink}
+                        onMouseOut={onMouseOutUnDrawLink}
+                    >JuniorPlus</NavLink>
+                </div>
+                {stateJP && addedMenuDraw(menuType) }
             </div>
-            {stateJP && addedMenuDraw(menuType) }
         </div>
     )
 }

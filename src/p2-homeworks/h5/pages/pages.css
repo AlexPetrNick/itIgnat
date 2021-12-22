@@ -216,3 +216,14 @@
         opacity: 1;
     }
 }
+
+.added__menu__points4:hover+.wrapper__link{
+    visibility: visible;
+    margin-top: 5px;
+    background-color: darkgrey;
+    margin-left: -10px;
+    align-items: center;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    transform: translateX(0);
+}
