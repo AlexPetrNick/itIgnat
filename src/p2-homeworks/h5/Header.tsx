@@ -5,6 +5,7 @@ import s from "./pages/Pages.module.css"
 import './pages/pages.css'
 
 type addedLinkType = {
+    id: string
     name: string
     link: string
 }
@@ -15,73 +16,75 @@ type dataAddedLinkType = {
     juniorPlus: Array<addedLinkType>
 }
 
-const dataAddedLink:dataAddedLinkType = {
+const dataAddedLink: dataAddedLinkType = {
     preJunior: [
-        {name: "HW1", link: 'as'},
-        {name: "HW2", link: 'as'},
-        {name: "HW3", link: 'as'},
-        {name: "HW4", link: 'as'},
-        {name: "HW5", link: 'as'},
-        {name: "HW6", link: 'as'},
+        {id: '1', name: "HW1", link: PATH.HW1},
+        {id: '2', name: "HW2", link: PATH.HW2},
+        {id: '3', name: "HW3", link: PATH.HW3},
+        {id: '4', name: "HW4", link: PATH.HW4},
+        {id: '5', name: "HW5", link: PATH.HW5},
+        {id: '6', name: "HW6", link: PATH.HW6},
     ],
     junior: [
-        {name: "HW7", link: 'as'},
-        {name: "HW8", link: 'as'},
-        {name: "HW9", link: 'as'},
-        {name: "HW10", link: 'as'},
-        {name: "HW11", link: 'as'}
+        {id: '7', name: "HW7", link: PATH.HW7},
+        {id: '8', name: "HW8", link: PATH.HW8},
+        {id: '9', name: "HW9", link: PATH.HW9},
+        {id: '10', name: "HW10", link: PATH.HW10},
+        {id: '11', name: "HW11", link: PATH.HW11}
     ],
     juniorPlus: [
-        {name: "HW12", link: 'as'},
-        {name: "HW13", link: 'as'},
-        {name: "HW14", link: 'as'},
-        {name: "HW15", link: 'as'},
-        {name: "HW16", link: 'as'}
+        {id: '12', name: "HW12", link: PATH.HW12},
+        {id: '13', name: "HW13", link: PATH.HW13},
+        {id: '14', name: "HW14", link: PATH.HW14},
+        {id: '15', name: "HW15", link: PATH.HW15},
+        {id: '16', name: "HW16", link: PATH.HW16}
     ]
 }
-
 
 
 function Header() {
     const [currentPage, setCurrentPage] = useState('PreJunior')
     const [stateJP, setStateJP] = useState<boolean>(true)
-    const [menuType, setMenuType] = useState<Array<addedLinkType>>(dataAddedLink.preJunior)
+    const [menuType, setMenuType] = useState<Array<addedLinkType>>([])
 
     const onClickLink = (e: MouseEvent<HTMLAnchorElement>) => {
         setCurrentPage(e.currentTarget.id)
     }
-    const addedMenuDraw = (array:Array<addedLinkType>) => {
+    const addedMenuDraw = (array: Array<addedLinkType>) => {
         return (
             <div
-                onMouseOut={onMouseOutUnDraw}
                 className={s.added__menu}>
-                {array.map((data, i) => <a
-                    className={'added__menu__points' + i}
-                    href={"#"}
-                >{data.name}</a>)}
+                {array.map((data, i) => <NavLink
+                    id={data.name}
+                    onClick={onClickLink}
+                    className={'added__menu__points' + data.id}
+                    to={data.link}
+                >{data.name}</NavLink>)}
             </div>
         )
     }
-
-
     const onMouseOverDraw = (e: MouseEvent<HTMLDivElement>) => {
         setStateJP(true)
-        console.log('sdf')
     }
-    const onMouseOutUnDraw = (e: MouseEvent<HTMLDivElement>) => {setStateJP(false)}
+    const onMouseOutUnDraw = (e: MouseEvent<HTMLDivElement>) => {
+        setStateJP(false)
+    }
     const onMouseOverDrawLink = (e: MouseEvent<HTMLAnchorElement>) => {
+        onMouseOutUnDrawLink(e)
         const typeArray = e.currentTarget.id
-        console.log(typeArray)
         if (typeArray === 'PreJunior') {
-            setMenuType(dataAddedLink.preJunior)
+            setMenuType([...dataAddedLink.preJunior])
+            onMouseOutUnDrawLink(e)
         } else if (typeArray === 'Junior') {
-            setMenuType(dataAddedLink.junior)
+            setMenuType([...dataAddedLink.junior])
         } else {
-            setMenuType(dataAddedLink.juniorPlus)
+            setMenuType([...dataAddedLink.juniorPlus])
         }
         setStateJP(true)
     }
-    const onMouseOutUnDrawLink = (e: MouseEvent<HTMLAnchorElement|HTMLDivElement>) => { setStateJP(false)    }
+    const onMouseOutUnDrawLink = (e: MouseEvent<HTMLAnchorElement | HTMLDivElement>) => {
+        setStateJP(false)
+    }
 
     return (
         <div className={s.wrapper}>
@@ -90,7 +93,8 @@ function Header() {
                 <div className={s.button__rigth}><b>{">"}</b></div>
             </div>
             <div
-                onMouseOver={onMouseOverDraw}
+                onMouseEnter={onMouseOverDraw}
+                onMouseLeave={onMouseOutUnDraw}
                 className={s.wrapper__link}>
                 <div className={s.links}>
                     <NavLink
@@ -98,24 +102,21 @@ function Header() {
                         to={PATH.PRE_JUNIOR}
                         onClick={onClickLink}
                         onMouseOver={onMouseOverDrawLink}
-                        onMouseOut={onMouseOutUnDrawLink}
                     >PreJunior</NavLink>
                     <NavLink
                         id={"Junior"}
                         to={PATH.JUNIOR}
                         onClick={onClickLink}
                         onMouseOver={onMouseOverDrawLink}
-                        onMouseOut={onMouseOutUnDrawLink}
                     >Junior</NavLink>
                     <NavLink
                         id={"JuniorPlus"}
                         to={PATH.JUNIOR_PLUS}
                         onClick={onClickLink}
                         onMouseOver={onMouseOverDrawLink}
-                        onMouseOut={onMouseOutUnDrawLink}
                     >JuniorPlus</NavLink>
                 </div>
-                {stateJP && addedMenuDraw(menuType) }
+                {stateJP && addedMenuDraw(menuType)}
             </div>
         </div>
     )
