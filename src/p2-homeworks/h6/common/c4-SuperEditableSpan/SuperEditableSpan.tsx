@@ -16,32 +16,32 @@ type SuperEditableSpanType = DefaultInputPropsType & { // и + ещё пропс
     error?: string
     spanClassName?: string
 
-    spanProps?: DefaultSpanPropsType // пропсы для спана
+    spanProps?: DefaultSpanPropsType
 }
 
 const SuperEditableSpan: React.FC<SuperEditableSpanType> = (
     {
-        autoFocus, // игнорировать изменение этого пропса
+        autoFocus,
         onBlur,
         onEnter,
         spanProps,
 
-        ...restProps// все остальные пропсы попадут в объект restProps
+        ...restProps
     }
 ) => {
-    const [editMode, setEditMode] = useState<boolean>(true)
+    const [editMode, setEditMode] = useState<boolean>(false)
     const {children, onDoubleClick, className, ...restSpanProps} = spanProps || {}
 
     const onEnterCallback = () => {
-        setEditMode(false) // выключить editMode при нажатии Enter
+        setEditMode(false)
         onEnter && onEnter()
     }
     const onBlurCallback = (e: React.FocusEvent<HTMLInputElement>) => {
-        setEditMode(false) // выключить editMode при нажатии за пределами инпута
+        setEditMode(false)
         onBlur && onBlur(e)
     }
     const onDoubleClickCallBack = (e: React.MouseEvent<HTMLSpanElement, MouseEvent>) => {
-        setEditMode(true) // включить editMode при двойном клике
+        setEditMode(true)
 
         onDoubleClick && onDoubleClick(e)
     }
@@ -55,12 +55,12 @@ const SuperEditableSpan: React.FC<SuperEditableSpanType> = (
                     <div className={s.wrapper__input}>
                         <b>&#128190;</b>
                         <SuperInputText
-                            autoFocus // пропсу с булевым значением не обязательно указывать true
+                            autoFocus
                             onBlur={onBlurCallback}
                             onEnter={onEnterCallback}
                             className={s.input__added__style}
 
-                            {...restProps} // отдаём инпуту остальные пропсы если они есть (value например там внутри)
+                            {...restProps}
                         />
                     </div>
                 ) : (
