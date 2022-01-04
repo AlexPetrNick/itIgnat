@@ -26,24 +26,24 @@ export const PATH = {
     HW5: '/pre-junior/hw5',
     HW6: '/pre-junior/hw6',
     JUNIOR: '/junior',
-    HW7: '/pre-junior/hw7',
-    HW8: '/pre-junior/hw8',
-    HW9: '/pre-junior/hw9',
-    HW10: '/pre-junior/hw10',
-    HW11: '/pre-junior/hw11',
+    HW7: '/junior/hw7',
+    HW8: '/junior/hw8',
+    HW9: '/junior/hw9',
+    HW10: '/junior/hw10',
+    HW11: '/junior/hw11',
     JUNIOR_PLUS: '/junior-plus',
-    HW12: '/pre-junior/hw12',
-    HW13: '/pre-junior/hw13',
-    HW14: '/pre-junior/hw14',
-    HW15: '/pre-junior/hw15',
-    HW16: '/pre-junior/hw16',
-    NULL: 'ex'
+    HW12: '/junior-plus/hw12',
+    HW13: '/junior-plus/hw13',
+    HW14: '/junior-plus/hw14',
+    HW15: '/junior-plus/hw15',
+    HW16: '/junior-plus/hw16'
 }
 
 function Routre() {
     return (
         <div>
             <Routes>
+                <Route path={''} element={<HW1/>}/>
                 <Route path={PATH.PRE_JUNIOR} element={<PreJunior/>}/>
                 <Route path={PATH.JUNIOR} element={<Junior/>}/>
                 <Route path={PATH.JUNIOR_PLUS} element={<JuniorPlus/>}/>
@@ -64,7 +64,6 @@ function Routre() {
                 <Route path={PATH.HW15} element={<HW12/>}/>
                 <Route path={PATH.HW16} element={<HW12/>}/>
                 <Route path={'*'} element={<Error404/>}/>
-                <Route path={'/'} element={<PreJunior/>}/>
             </Routes>
         </div>
     )

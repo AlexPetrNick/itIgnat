@@ -11,10 +11,10 @@ import HW11 from "../../h11/HW11";
 export const Junior = () => {
     return (
         <div>
-            <HW7/>
+            {/*<HW7/>
             <HW8/>
             <HW9/>
-            <HW10/>
+            <HW10/>*/}
             <HW11/>
         </div>
     )
