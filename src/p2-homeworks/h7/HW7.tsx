@@ -10,7 +10,7 @@ const arr = ['x', 'y', 'z']
 
 function HW7() {
     const [value, onChangeOption] = useState<string>(arr[1])
-    const [valueMulti, setValueMulti] = useState<Array<string>>(['JS','CSS'])
+    const [valueMulti, setValueMulti] = useState<Array<string>>(['x'])
 
     const removeValueCallback = (val: string) => setValueMulti(valueMulti.filter(v => v !== val))
     const addValueCallback = (val:string) => setValueMulti([...valueMulti, val])

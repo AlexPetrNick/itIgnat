@@ -9,6 +9,7 @@ type AlternativeSuperSelectType = {
     values: Array<string>
     removeValue: (val: string) => void
     addValue: (val: string) => void
+    className?: string
 }
 
 type ArrayType = 'up' | 'down'
@@ -16,10 +17,9 @@ type ArrayType = 'up' | 'down'
 const temp = ['JS','CSS','REACT','TS', 'PYTHON', 'x', 'y', 'PYTHON1']
 
 
-/*&and; &or; */
 export const AlternativeSuperSelect:FC<AlternativeSuperSelectType> = ({values, option,
-              removeValue, addValue}) => {
-    const [visibleMenu, setVisibleMenu] = useState<boolean>(false)
+              removeValue, addValue, className}) => {
+    const [visibleMenu, setVisibleMenu] = useState<boolean>(true)
     const [stateArray, setStateArray] = useState<ArrayType>('down')
     const onClickLiElement = (elem:string) => values.includes(elem) ? removeValue(elem) : addValue(elem)
 
@@ -51,7 +51,7 @@ export const AlternativeSuperSelect:FC<AlternativeSuperSelectType> = ({values, o
     }
 
     return (
-        <div>
+        <div className={`${s.wrapper__selector} ${className&&className}`}>
             <div
                 className={s.menu__alt__select}
                 onClick={onClickSelect}
@@ -61,8 +61,8 @@ export const AlternativeSuperSelect:FC<AlternativeSuperSelectType> = ({values, o
                 <div className={s.arrow__select}>{stateArray === 'up' ? <b>&and;</b> : <b>&or;</b>} </div>
             </div>
             {visibleMenu &&
-            <div className={s.menu__select}>
-                <div className={s.wrapper__option} onMouseLeave={onClickSelect}>
+            <div className={s.menu__select}  onMouseLeave={onClickSelect}>
+                <div className={s.wrapper__option}>
                     {liMenu}
                 </div>
             </div>

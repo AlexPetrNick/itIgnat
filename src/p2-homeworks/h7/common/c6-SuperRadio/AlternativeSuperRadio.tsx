@@ -7,19 +7,24 @@ type AlternativeSuperRadioType = {
     removeValue: (val: string) => void
     addValue: (val: string) => void
 }
-const temp = ['JS','CSS','REACT','TS', 'PYTHON', 'x', 'y', 'PYTHON1']
 
+export const AlternativeSuperRadio: FC<AlternativeSuperRadioType> = ({values, option,
+    removeValue, addValue}) => {
 
-export const AlternativeSuperRadio:FC<AlternativeSuperRadioType> = () => {
-    const mappedOption = temp.map(o => {
+    const onClickRadioElement = (elem:string) => values.includes(elem) ? removeValue(elem) : addValue(elem)
+    const mappedOption = option.map(o => {
+        const styleSelect = values.includes(o) ? `${s.icon__selected}` : ''
+        const allStyleIcon = `${s.icon__radio} ${styleSelect}`
         return (
-            <div className={s.wrapper__radio}>
-                <div>&bull;	</div>
-                <div>{o}</div>
+            <div className={s.wrapper__radio}
+                 onClick={() => onClickRadioElement(o)}
+            >
+                <div className={allStyleIcon}>&bull;</div>
+                <div className={s.text__radio}>{o}</div>
             </div>
         )
     })
-    
+
     return (
         <div>
             {mappedOption}

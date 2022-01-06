@@ -1,3 +1,7 @@
+.wrapper__selector {
+    position: relative;
+}
+
 .menu__alt__select {
     width: 150px;
     height: 25px;
@@ -17,12 +21,14 @@
 
 
 .menu__select {
+    position: absolute;
     border: 2px solid black;
     width: 200px;
-    height: 100px;
-    min-height: 100px;
+    background-color: white;
+    height: auto;
     overflow: auto;
     font-size: 14px;
+    top: 30px;
 }
 
 .wrapper__option {

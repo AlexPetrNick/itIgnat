@@ -1,4 +1,24 @@
 .wrapper__radio {
     display: flex;
     width: auto;
+    max-width: 150px;
+    font-size: 14px;
+    margin-left: 10px;
+    align-items: center;
+    max-height: 20px;
+    cursor: pointer;
+}
+
+.icon__radio {
+    font-size: 30px;
+    color: blue;
+}
+.text__radio {
+    margin-left: 10px;
+
+}
+
+.icon__selected {
+    color:white;
+    text-shadow: 0 0 4px rgba(4,0,255,1);
 }
