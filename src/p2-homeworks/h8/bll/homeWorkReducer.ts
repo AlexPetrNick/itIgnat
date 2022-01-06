@@ -1,10 +1,10 @@
 export type stateType = {
     _id: number
-    name: number
+    name: string
     age: number
 }
 export type ActionType = {
-    type: 'sort' | 'check'
+    type: 'sort' | 'check' | 'filterAge' | 'filterName' | 'all'
     payload: string | number
 }
 
@@ -30,6 +30,15 @@ export const homeWorkReducer:homeWorkReducerType = (state, action) => {
         }
         case 'check': {
             return copyState.filter(u => u.age > action.payload)
+        }
+        case 'filterAge': {
+            return copyState.filter(u => u.age === action.payload)
+        }
+        case 'filterName': {
+            return copyState.filter(u => u.name === action.payload)
+        }
+        case 'all': {
+            return state
         }
         default:
             return copyState

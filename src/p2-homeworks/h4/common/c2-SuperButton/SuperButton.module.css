@@ -1,6 +1,6 @@
 .default {
     height: 30px;
-    width: 70px;
+    min-width: 70px;
     background: radial-gradient(white, white, white, gray);
     border-radius: 10px;
     border: 2px solid gray;

@@ -1,0 +1,20 @@
+.wrapper__people {
+    display: flex;
+    flex-direction: column;
+    border:2px solid black;
+    width: 250px;
+}
+
+.people__style {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px;
+    border:1px solid black;
+    background-color: gray;
+}
+
+.wrapper__add__filter {
+    display: flex;
+    flex-direction: column;
+    width: 250px;
+}
