@@ -1,0 +1,43 @@
+.menu__alt__select {
+    width: 150px;
+    height: 25px;
+    border: 2px solid black;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.arrow__select {
+    margin-right: 5px;
+    margin-bottom: 5px;
+}
+
+
+.menu__select {
+    border: 2px solid black;
+    width: 200px;
+    height: 100px;
+    min-height: 100px;
+    overflow: auto;
+}
+
+.wrapper__option {
+    margin-top: -3px;
+}
+.item__options {
+    list-style-type: none;
+    height: 20px;
+
+}
+.item__options:hover{
+    background-color: rgba(4,0,255,0.4);
+}
+.item__option__gray {
+    background-color: lightgray;
+}
+.selected__item__option {
+    background-color: rgba(4,0,255,1);
+    color:white;
+}
