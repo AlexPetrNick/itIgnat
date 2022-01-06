@@ -7,6 +7,7 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    font-size: 14px;
 }
 
 .arrow__select {
@@ -21,6 +22,7 @@
     height: 100px;
     min-height: 100px;
     overflow: auto;
+    font-size: 14px;
 }
 
 .wrapper__option {

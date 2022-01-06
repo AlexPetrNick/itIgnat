@@ -2,12 +2,18 @@ import React, {useState} from 'react'
 import SuperSelect from './common/c5-SuperSelect/SuperSelect'
 import SuperRadio from './common/c6-SuperRadio/SuperRadio'
 import {AlternativeSuperSelect} from "./common/c5-SuperSelect/AlternativeSuperSelect";
+import {AlternativeSuperRadio} from "./common/c6-SuperRadio/AlternativeSuperRadio";
+
+
 
 const arr = ['x', 'y', 'z']
 
 function HW7() {
     const [value, onChangeOption] = useState<string>(arr[1])
     const [valueMulti, setValueMulti] = useState<Array<string>>(['JS','CSS'])
+
+    const removeValueCallback = (val: string) => setValueMulti(valueMulti.filter(v => v !== val))
+    const addValueCallback = (val:string) => setValueMulti([...valueMulti, val])
 
     return (
         <div>
@@ -36,9 +42,15 @@ function HW7() {
             <AlternativeSuperSelect
                 option={arr}
                 values={valueMulti}
-                setValueMulti={setValueMulti}
+                removeValue={removeValueCallback}
+                addValue={addValueCallback}
             />
-            {/*<AlternativeSuperRadio/>*/}
+            <AlternativeSuperRadio
+                option={arr}
+                values={valueMulti}
+                removeValue={removeValueCallback}
+                addValue={addValueCallback}
+            />
             <hr/>
         </div>
     )
