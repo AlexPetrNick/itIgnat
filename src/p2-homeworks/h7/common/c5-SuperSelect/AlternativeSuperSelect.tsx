@@ -19,7 +19,7 @@ const temp = ['JS','CSS','REACT','TS', 'PYTHON', 'x', 'y', 'PYTHON1']
 
 export const AlternativeSuperSelect:FC<AlternativeSuperSelectType> = ({values, option,
               removeValue, addValue, className}) => {
-    const [visibleMenu, setVisibleMenu] = useState<boolean>(true)
+    const [visibleMenu, setVisibleMenu] = useState<boolean>(false)
     const [stateArray, setStateArray] = useState<ArrayType>('down')
     const onClickLiElement = (elem:string) => values.includes(elem) ? removeValue(elem) : addValue(elem)
 
