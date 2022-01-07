@@ -7,7 +7,7 @@ import s from './Clock.module.css'
 
 function Clock() {
     const [timerId, setTimerId] = useState<number>(0)
-    const [date, setDate] = useState<string>('')
+    const [date, setDate] = useState<Date>(new Date(0,0,0))
     const [show, setShow] = useState<boolean>(false)
     const [statusTimer, setStatusTimer] = useState<boolean>(false)
 
@@ -17,7 +17,7 @@ function Clock() {
     }
     const start = () => {
         const id: number = window.setInterval(() => {
-            setDate(new Date().toLocaleString())
+            setDate(new Date())
         }, 1000)
         setTimerId(id)
         setStatusTimer(true)
@@ -29,11 +29,9 @@ function Clock() {
     const onMouseLeave = () => {
         setShow(false)
     }
-    const arrDate = date.split(',')
-    const stringTime = arrDate.length > 1 ? arrDate[1] : '00:00:00'
-    const stringDate =arrDate.length > 1 ? arrDate[0] : '00.00.0000'
 
-    const test = new Date()
+    const stringTime = date.toLocaleTimeString()
+    const stringDate = date.toLocaleDateString()
 
 
     return (
