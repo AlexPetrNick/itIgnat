@@ -46,3 +46,25 @@
     justify-content: center;
     border-radius: 10px;
 }
+
+.wrapper__alt {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+}
+.number__time__millisecond {
+    font-size: 30px;
+
+}
+
+.list__timeset {
+    display: flex;
+    flex-direction: column;
+    font-size: 20px;
+    background-color: black;
+    color: green;
+    border:2px solid green;
+    margin-top: 10px;
+    max-height: 150px;
+    overflow: auto;
+}

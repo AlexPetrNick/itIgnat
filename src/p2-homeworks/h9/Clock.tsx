@@ -33,6 +33,9 @@ function Clock() {
     const stringTime = arrDate.length > 1 ? arrDate[1] : '00:00:00'
     const stringDate =arrDate.length > 1 ? arrDate[0] : '00.00.0000'
 
+    const test = new Date()
+
+
     return (
         <div>
             <div className={s.wrapper__time__data}>
