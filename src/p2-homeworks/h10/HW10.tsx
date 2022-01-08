@@ -3,11 +3,17 @@ import SuperButton from '../h4/common/c2-SuperButton/SuperButton'
 import {connect, useDispatch, useSelector} from 'react-redux'
 import {AppStoreType} from "./bll/store";
 import {toggleLoaderAC} from "./bll/loadingReducer";
+import preloader from './image/Fidget-spinner.gif'
+import preloader2 from './image/6.gif'
+import s from './style.module.css'
+import Alternative from "./bll/Alternative";
 
 
 const HW10 = () => {
     const state = useSelector((state:AppStoreType):boolean => state.loading.isLoading)
     const dispatch = useDispatch()
+
+    console.log(preloader2)
 
     const setLoading = () => {
         setTimeout(() => {
@@ -17,13 +23,12 @@ const HW10 = () => {
     };
 
     return (
-        <div>
+        <div className={s.wrapper}>
             <hr/>
             homeworks 10
 
-            {/*should work (должно работать)*/}
             {state
-                ? (<div>крутилка...</div>) : (
+                ? (<img className={s.icon} src={preloader2} alt=""/>) : (
                     <div>
                         <SuperButton onClick={setLoading}>set loading...</SuperButton>
                     </div>
@@ -31,8 +36,7 @@ const HW10 = () => {
             }
 
             <hr/>
-            {/*для личного творчества, могу проверить*/}
-            {/*<Alternative/>*/}
+            <Alternative/>
             <hr/>
         </div>
     )

@@ -1,0 +1,34 @@
+.wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.icon {
+    width: 50px;
+    margin-left: 30px;
+}
+
+.wrapper__button {
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+
+.on__off {
+    width: 210px;
+}
+
+.ld {
+    height: 69px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+}
+
+.img__alt {
+    margin-left: 70px;
+
+}
