@@ -6,19 +6,17 @@ import {toggleLoaderAC} from "./bll/loadingReducer";
 import preloader from './image/Fidget-spinner.gif'
 import preloader2 from './image/6.gif'
 import s from './style.module.css'
-import Alternative from "./bll/Alternative";
+import {Alternative} from "./bll/Alternative";
 
 
-const HW10 = () => {
+export const HW10 = () => {
     const state = useSelector((state:AppStoreType):boolean => state.loading.isLoading)
     const dispatch = useDispatch()
-
-    console.log(preloader2)
 
     const setLoading = () => {
         setTimeout(() => {
             dispatch(toggleLoaderAC())
-        }, 3000)
+        }, 2000)
         dispatch(toggleLoaderAC())
     };
 
@@ -42,17 +40,4 @@ const HW10 = () => {
     )
 }
 
-type mapStateToPropsReturnType = {
-    loading: boolean
-}
-
-const mapStateToProps = (state: AppStoreType): mapStateToPropsReturnType => {
-    return {
-        loading: state.loading.isLoading
-    }
-}
-
-export default connect(mapStateToProps, {
-    toggleLoaderAC
-})(HW10)
 

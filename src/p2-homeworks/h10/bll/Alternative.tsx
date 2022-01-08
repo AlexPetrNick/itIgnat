@@ -7,7 +7,12 @@ import one from '../image/6.gif'
 import two from '../image/Fidget-spinner.gif'
 import three from '../image/Rocket.gif'
 
-const Alternative = () => {
+type mapStateToPropsReturnType = {
+    image: string
+    status: boolean
+}
+
+export const Alternative = () => {
     const state = useSelector((state:AppStoreType):mapStateToPropsReturnType => {
         return {
             image: state.loading.loaderSrc,
@@ -40,16 +45,3 @@ const Alternative = () => {
 
     )
 }
-
-type mapStateToPropsReturnType = {
-    image: string
-    status: boolean
-}
-
-const mapStateToProps = (state:AppStoreType):mapStateToPropsReturnType => {
-    return {
-        image: state.loading.loaderSrc,
-        status: state.loading.isLoadingAlt
-    }
-}
-export default connect(mapStateToProps)(Alternative)
